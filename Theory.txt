@@ -1,0 +1,45 @@
+## Introduction to NoSQL Databases
+
+# Database: A database is defined as an organized collection of structured information, or data, typically stored electronically.
+
+Purspose of Database is to keeep your information organised and easily accessible.
+
+# SQL Database: It is a type of database that stores information in a relational way. The data is stored in tables and the tables have predefined relationships with each other.
+The relational data model avoids data redundancy by storing linked information across the tables. 
+
+# NoSQL Databases: It is a type of database that stores data in a non tabular form.
+Different type of NoSQL Databases may include:
+    • Document Database
+    • Key-Value Database
+    • Graph Database 
+    • Wide Column Oriented Databses
+
+## MongoDB
+
+MongoDB is a type of Document NoSQL Database. It stores data as field valiue pairs inside a document. Many such documents are stored under a collection. These collections are what that the database stores. 
+
+Relational Darabases have schema. This is a fixed structure that is defined beforehand. Document Databases like MongoDB are "schema-less", thus they have a flexible structure. Hence, we can say they are polymorphic.
+
+Changes can be made easily to an individual document structure as a new field value pair is added. This maked it Horizontally and Vertically "scalable".
+
+In general, sata is stored more efficiently in MongoDB than in SQL because of its schema-less structure, resulting in less data redundancy and more efficiency.
+
+Documents in MongoDB uses JSON format. 
+Eg.: {
+    "_id": "100001",
+    "customer.name": "Shri Radhey Mishra",
+    "phoneNumber": [ "9870977883", "7983744120" ],
+    "address": {
+        "street": "Kankhal",
+        "town": "Haridwar",
+        "postCode": "249408"
+    }
+}
+
+## NOTE ## Field names should be consistent.
+
+DataTypes for values in MongoDB are:
+    • Numerical: Numbers such as integers and decimals
+    • Date: Date and time values
+    • String: Character/ text values
+
