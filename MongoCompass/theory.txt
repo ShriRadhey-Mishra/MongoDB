@@ -7,3 +7,67 @@ Purspose of Database is to keeep your information organised and easily accessibl
 # SQL Database: It is a type of database that stores information in a relational way. The data is stored in tables and the tables have predefined relationships with each other.
 The relational data model avoids data redundancy by storing linked information across the tables. 
 
+# NoSQL Databases: It is a type of database that stores data in a non tabular form.
+Different type of NoSQL Databases may include:
+    • Document Database
+    • Key-Value Database
+    • Graph Database 
+    • Wide Column Oriented Databses
+
+## MongoDB
+
+MongoDB is a type of Document NoSQL Database. It stores data as field valiue pairs inside a document. Many such documents are stored under a collection. These collections are what that the database stores. 
+
+Relational Darabases have schema. This is a fixed structure that is defined beforehand. Document Databases like MongoDB are "schema-less", thus they have a flexible structure. Hence, we can say they are polymorphic.
+
+Changes can be made easily to an individual document structure as a new field value pair is added. This maked it Horizontally and Vertically "scalable".
+
+In general, sata is stored more efficiently in MongoDB than in SQL because of its schema-less structure, resulting in less data redundancy and more efficiency.
+
+Documents in MongoDB uses JSON format. 
+Eg.: {
+    "_id": "100001",
+    "customer.name": "Shri Radhey Mishra",
+    "phoneNumber": [ "9870977883", "7983744120" ],
+    "address": {
+        "street": "Kankhal",
+        "town": "Haridwar",
+        "postCode": "249408"
+    }
+}
+
+## NOTE ## Field names should be consistent.
+
+DataTypes for values in MongoDB are:
+    • Numerical: Numbers such as integers and decimals
+    • Date: Date and time values
+    • String: Character/ text values
+
+# Replica Set and Clusters:
+
+Common Deplyment of MongoDB includes replica sets and sharded clusters. A replica set consists of three machines, also referred to as instances. Each "instance" contains a full copy of the data.  Each instance contains a complete replica of the data in case of any issue on a single machine in the cluster. if there is an issue, then the data is still available on the two other machines.
+
+A sharded cluster is essentially a partition of the database, which splits your data across the servers. A sharded cluster consists of the following:
+    • Shard: containing a partition of the data.
+    • Mongos: interface between any application using MongoDB and the sharded cluster.
+    • Config Servers: store metadata and configuration settings.
+All these makes MongoDB a Natively Distributed System, and this is why  MongoDB is very good at coordinating data across multiple servers.
+
+Benefits of having a Natively Distributed System:
+
+• Fault tolerance: Because there are servers that contains a replica of the data in case of any issue.
+
+• Scalabilty: By sharding your data, you increase your storage capacity. So, when your data volume grows, you can partition the data across more shards. 
+
+• Move data closer to users: If you had customers in Europe and America, you can just deploy a cluster in North America and another one in Europe.
+
+
+## Advantages of MongoDB:
+
+1. Less complex compared to relational databases: Performing queries can get pretty complex in relational databases when multiple tables are in discussion. By contrast, MongoDB stores data much more efficiently and flexibly. Different documents in the same collection can store different fields and values. These values can also consist of multiple data types.
+
+2. Schema-less: Relational Darabases have schema. This is a fixed structure that is defined beforehand. Document Databases like MongoDB are "schema-less", thus they have a flexible structure.
+
+3. Easier to maintain: There are no constraints such as foreign keys and you dont have to manage relationships between multiple tables. Hence maintenance in MongoDB is much simpler than in Relational database.
+
+4. Scaling is Easy: Changes can be made easily to an individual document structure as a new field value pair is added. This maked it Horizontally and Vertically "scalable".
