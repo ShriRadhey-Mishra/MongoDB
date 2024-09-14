@@ -6,6 +6,9 @@
 
 # mongoimport, mongoexport, mongodump and mongorestore
 
+mongoimport and mongoexport uses JSON format to import and export files.
+However, mongodump and mongorestore uses Binary JSON (BSON) format to import and export collections/databases to/from Mongo Atlas Cluster.
+
 • mongoexport --uri="" collection= out=
 {
     uri stands for Uniform Resource Identifier. Its syntax is --uri="mongodb+srv://user:password@<cluster>.mongodb.net/database"
@@ -19,8 +22,21 @@ eg.: mongoexport --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
 {
     uri stands for Uniform Resource Identifier. Its syntax is --uri="mongodb+srv://user:password@<cluster>.mongodb.net/database"
     collection specifies the collection in database that we want to import our file. If the specified collection doesn't exists, then a new collection will be created.
-
-
+    file specifies the exact file which we want to import.
 }
 
 eg.: mongoimport --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" --collection=import_export_coll1 --file=import_export_coll1.json
+
+• mongodump --uri="" //--collections=""
+{
+    Here, you specify either URI or both URI and collection. If you only sepcify URI, You will get a 'dump' folder with the entire database. I you specify both URI and collection, you'll get that specific collection.
+}
+
+eg. mongodump --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" --collection=import_export_coll1
+
+• mongorestore --uri="" <path_to_db>
+{
+    here the path should be dump/import_export_db
+}
+
+eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" dump/import_export_db
