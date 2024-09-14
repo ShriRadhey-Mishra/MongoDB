@@ -1,1 +1,2 @@
 • show dbs : shows all the collections in your database.
+• exit : to close the connection between MongoAtlas and CLI.
