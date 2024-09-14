@@ -1,0 +1,9 @@
+## Introduction to NoSQL Databases
+
+# Database: A database is defined as an organized collection of structured information, or data, typically stored electronically.
+
+Purspose of Database is to keeep your information organised and easily accessible.
+
+# SQL Database: It is a type of database that stores information in a relational way. The data is stored in tables and the tables have predefined relationships with each other.
+The relational data model avoids data redundancy by storing linked information across the tables. 
+
