@@ -40,3 +40,44 @@ eg. mongodump --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke
 }
 
 eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" dump/import_export_db
+
+
+## Mongo Query Language (MQL)
+// All the commands are Case-Sensitive
+
+• show dbs: shows all the present databases in the cluster
+• show collection: shows all the collections in the database.
+
+# Creating/ Deleting Databases
+ • use <db_name>: used to move to a particular database. If the <db_name> is not present, it will create one.
+ • db.createCollection(name,options): it is used to create a collection. options field is optional.
+ • db.<collection_name>.drop(): it is used to delete a collection.
+ • db.dropDatabase(): Deletes the database your currently in. First move to the database you want to drop using use <db_name> and then use this command. 
+
+# find/ findOne
+ • db.<collection_name>.findOne(query,projections): It returns the first occuring document that satisfies the query. Both the parameters, query and projections are optional. If no query is passed, it will return the first document from the specified collection
+
+ • db.<collection_name>.find(query,projections): It returns the all the occuring document that satisfies the query. Both the parameters, query and projections are optional. If no query is passed, it will return all the documents from the specified collection.
+
+ These queries are simply the key value pairs in JSON format that you want to filter.
+
+# Use of $ in MQL:
+    It precedes operators in MQL. {field: {operator: value}} Example: $lt --> Less than operator. {"salary": {$lt: 50000}}
+    It also precedes field values.
+    Majorly used in Aggregation Pipeline.
+
+# Operators in MQL:
+ - Comparison Operator:
+    • $eq: equal to
+    • $ne: not equal to
+    • $gt: greater than
+    • $gte: greater than or equal to
+    • $lt: less than
+    • $lte: less than or equal to
+    • $in: in, searches all the values that are passed in the provided array. ex.: {"salary": {$in: [50000, 100000]}}
+    • $nin: not in
+
+ - Logical Operator:
+    • $and: returns all the documents that matches all the condition. Syntax: {operator: [{condition1}, {condition2}, ...]}. It is used by default as an implicit operator when no other operator or duplicate fields are specified.
+    • $or: returrns all the documents that matches any of the specified condition. Syntax: {operator: [{condition1}, {condition2}, ...]}
+    • $nor: returns all the documents that fails all of the conditions. Syntax: {operator: [{condition1}, {condition2}, ...]}• $not: returns all the documents that do not match the condition. Syntax: {$not: {conditon}}
