@@ -1,2 +1,26 @@
 • show dbs : shows all the collections in your database.
 • exit : to close the connection between MongoAtlas and CLI.
+
+## NOTE ##  : All these commands will be pasted directly on the cmd from the directory where the out/file file is to be located.
+// For any commands that are not listed in this list follow: https://docs.mongodb.com/database-tools/
+
+# mongoimport, mongoexport, mongodump and mongorestore
+
+• mongoexport --uri="" collection= out=
+{
+    uri stands for Uniform Resource Identifier. Its syntax is --uri="mongodb+srv://user:password@<cluster>.mongodb.net/database"
+    collection specifies the collection in database that we want to export from.
+    out specifies the file type which we want to export as.
+} 
+
+eg.: mongoexport --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" --collection=import_export_coll1 --out=import_export_coll1.json
+
+• mongoimport --uri="" collection= file=
+{
+    uri stands for Uniform Resource Identifier. Its syntax is --uri="mongodb+srv://user:password@<cluster>.mongodb.net/database"
+    collection specifies the collection in database that we want to import our file. If the specified collection doesn't exists, then a new collection will be created.
+
+
+}
+
+eg.: mongoimport --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" --collection=import_export_coll1 --file=import_export_coll1.json
