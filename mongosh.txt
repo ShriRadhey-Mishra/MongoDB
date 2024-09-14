@@ -1,0 +1,1 @@
+• show dbs : shows all the collections in your database.
