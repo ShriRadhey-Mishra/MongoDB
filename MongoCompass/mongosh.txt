@@ -56,11 +56,12 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
 
 # find/ findOne
  • db.<collection_name>.findOne(query,projections): It returns the first occuring document that satisfies the query. Both the parameters, query and projections are optional. If no query is passed, it will return the first document from the specified collection
-
  • db.<collection_name>.find(query,projections): It returns the all the occuring document that satisfies the query. Both the parameters, query and projections are optional. If no query is passed, it will return all the documents from the specified collection.
 
  These queries are simply the key value pairs in JSON format that you want to filter.
- In the projections parameter, you specify the fields you wish to display as keys, and enter the value 1, if you like them to be displayed. Any field omitted will not be displayed ith the exception of the "_id" field. If the projection field is not passed, it shows all the fields of the database. 
+ In the projections parameter, you specify the fields you wish to display as keys, and enter the value 1, if you like them to be displayed. Any field omitted will not be displayed ith the exception of the "_id" field. If the projection field is not passed, it shows all the fields of the database.
+ 
+ If you wish to learn more, check this out: https://www.mongodb.com/docs/manual/reference/operator/query/
 
 # Use of $ in MQL:
     It precedes operators in MQL. {field: {operator: value}} Example: $lt --> Less than operator. {"salary": {$lt: 50000}}
@@ -103,4 +104,9 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     ex: db.inspections.find({"address.zip": 11358})
 
 # Quering Arrays:
+    • If you want to display all the documents which contains a particular element in the array, use this example syntax: db.posts.find({"tags":"roof"},{"tags":1})
+    • If you want to find a specific array you must specify all the elements that are present in that array. If the order is not maintained, then the desired output will not come. ex.  syntax: db.posts.find({"tags":["current", "quartz", "textbook", "bus", "roof", "lentil", "flute", "mile", "spain", "sagittarius"]},{"tags":1})
+    • $all: returns all the documents where the value of a field is an array that contains all the specified elements and ordering doesn't matter. Syntax: db.collection.find({field: {$all: [value1, value2,...]}})
+    • $size: returns all the documents that match the specified array size.   Syntax: db.collection.find({field: {$size: value}})
+    • elemMatch: returns documents that contain an array field with an element that contains the matching criteria.  Syntax: db.collection.find({field: {$elemMatch: {{query1},{query2},...}}})  Ex. db.grades.find({"scores": {$elemMatch: {"type": "exam","score":{$gt: 80}}}})
     
