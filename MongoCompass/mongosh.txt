@@ -64,7 +64,7 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
 
 # Use of $ in MQL:
     It precedes operators in MQL. {field: {operator: value}} Example: $lt --> Less than operator. {"salary": {$lt: 50000}}
-    It also precedes field values. eg.: {$expr: {$gt: ["$tripdurantiom", 400]}}
+    It also precedes field values. eg.: {$expr: {$gt: ["$tripdurantion", 400]}}
     Majorly used in Aggregation Pipeline.
 
 # Operators in MQL:
@@ -97,3 +97,10 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     • limit(number): Limits the number of documents that are returned. Syntax: db.collection.find({query}).limit(number)
     • skip(number): skips the first X number of documents. Syntax: db.collection.find({query}).skip(X)
     • size(): Size is like the count in that ir returns the count of the documents however it should be used when you've applied skip or limit to your records.
+
+# Query Embedded Document:
+    We'll use dot operator to access the fields inside object field. You can chain up if needed. 
+    ex: db.inspections.find({"address.zip": 11358})
+
+# Quering Arrays:
+    
