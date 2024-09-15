@@ -110,3 +110,17 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     • $size: returns all the documents that match the specified array size.   Syntax: db.collection.find({field: {$size: value}})
     • elemMatch: returns documents that contain an array field with an element that contains the matching criteria.  Syntax: db.collection.find({field: {$elemMatch: {{query1},{query2},...}}})  Ex. db.grades.find({"scores": {$elemMatch: {"type": "exam","score":{$gt: 80}}}})
     
+## Inserting, Deleting and Updating Documents in a Collection:
+
+# Inserting Document in a Collection: 
+    • db.<collection_name>.insert(
+        {
+            field: value,
+            field: value
+        }
+    )
+
+    • We can create a document in a collection using the insert method.
+    • We can create similar documents as long as they have different ids.
+    • you can insert multiple documents using an array.
+        ex.  db.<collection_name>.insert([{field: value, field: value}, {field: value, field: value}, {field: value, field: value}, ...])
