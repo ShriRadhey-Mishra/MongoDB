@@ -60,10 +60,11 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
  • db.<collection_name>.find(query,projections): It returns the all the occuring document that satisfies the query. Both the parameters, query and projections are optional. If no query is passed, it will return all the documents from the specified collection.
 
  These queries are simply the key value pairs in JSON format that you want to filter.
+ In the projections parameter, you specify the fields you wish to display as keys, and enter the value 1, if you like them to be displayed. Any field omitted will not be displayed ith the exception of the "_id" field. If the projection field is not passed, it shows all the fields of the database. 
 
 # Use of $ in MQL:
     It precedes operators in MQL. {field: {operator: value}} Example: $lt --> Less than operator. {"salary": {$lt: 50000}}
-    It also precedes field values.
+    It also precedes field values. eg.: {$expr: {$gt: ["$tripdurantiom", 400]}}
     Majorly used in Aggregation Pipeline.
 
 # Operators in MQL:
@@ -80,4 +81,19 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
  - Logical Operator:
     • $and: returns all the documents that matches all the condition. Syntax: {operator: [{condition1}, {condition2}, ...]}. It is used by default as an implicit operator when no other operator or duplicate fields are specified.
     • $or: returrns all the documents that matches any of the specified condition. Syntax: {operator: [{condition1}, {condition2}, ...]}
-    • $nor: returns all the documents that fails all of the conditions. Syntax: {operator: [{condition1}, {condition2}, ...]}• $not: returns all the documents that do not match the condition. Syntax: {$not: {conditon}}
+    • $nor: returns all the documents that fails all of the conditions. Syntax: {operator: [{condition1}, {condition2}, ...]}
+    • $not: returns all the documents that do not match the condition. Syntax: {$not: {conditon}}
+
+ - $expr Operator: show me all the documents where the value of "field1" is the same as the value of "field2". Syntax: {$expr: {operator: [field, value]}}
+ 
+ - Element Operators:
+    • $exists: Returns documents that contains a specified field. Syntax: {field: {$exists: <boolean>}}
+               I you pass <boolean> === true, and if that field exists then that document will be returned. If you pass <boolean> === false, and if that field does not exist then that document will be returned.
+    • $type: Returns the fields that contains the values of a specific data type. Syntax: {field: {$type: [<BSON type1>, <BSON type2>,...]}} 
+ 
+ - Cursor Methods:
+    • count(): returns the number of documents in the result set. Syntax: db.collection.find({query}).count()
+    • sort({parameters}): Orders the documents based on the specific field. Syntax: db.collection.find({query}).sort({"station_name": -1})  (Here, 1 means ascendind order and -1 means descending order.)
+    • limit(number): Limits the number of documents that are returned. Syntax: db.collection.find({query}).limit(number)
+    • skip(number): skips the first X number of documents. Syntax: db.collection.find({query}).skip(X)
+    • size(): Size is like the count in that ir returns the count of the documents however it should be used when you've applied skip or limit to your records.
