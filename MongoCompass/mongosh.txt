@@ -114,15 +114,49 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
 
 # Inserting Document in a Collection: 
     • db.<collection_name>.insert(
-        {
-            field: value,
-            field: value
+        <document or array of documents>,
+        { writeConcern: <document>,
+          ordered: <boolean> 
         }
     )
 
     • We can create a document in a collection using the insert method.
     • We can create similar documents as long as they have different ids.
+    • We can also specify the "_id". If you don, it will set a default auto generated value.
     • you can insert multiple documents using an array.
         ex.  db.<collection_name>.insert([{field: value, field: value}, {field: value, field: value}, {field: value, field: value}, ...])
     
+# Deleting Documents in a Collection:
+ - deleteOne():
+        • db.collection.deleteOne( 
+            <filter>, 
+            {
+                writeConcern: <document>,
+                collation: <document>,
+                hint: <document>
+            }
+        )
+
+ - deleteMany():    
+        • db.document.deleteMany(
+            <filter>, 
+            {
+                writeConcern: <document>,
+                collation: <document>
+            }
+        )
+ - In deleteOne(), the first document that matches the condition gets deleted, while in deleteMany(), all the documents that matches the condition gets deleted.
+
+# Updating documents in a Collection:
+    • updateOne and updateMany():  They both follow the same syntax:
+        db.collection.updateOne({filter}, (update), {options})
+        db.collection.updateMany({filter}, (update), {options})
     
+    • updateOne() update the first document that matches the specified filter, while updateMany() updates all the documents that matches the specified filter. 
+    • If the filter parameter is left blank, then all the documents in the scope gets updated.
+    • These queries instruct the MongoDB on how to update the document depend on the (update) parameter used.
+    
+    # Update Operators:
+        • $set: It replaces the existing field value with the one you specify. and you can update more than one field at a time.
+            Syntax: db.collection.updateOne({filter}, {$set: {field:value, field:value, ...}})
+                    db.collection.updateMany({filter}, {$set: {field:value, field:value, ...}})
