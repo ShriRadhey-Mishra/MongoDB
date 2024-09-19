@@ -160,3 +160,4 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
         • $set: It replaces the existing field value with the one you specify. and you can update more than one field at a time.
             Syntax: db.collection.updateOne({filter}, {$set: {field:value, field:value, ...}})
                     db.collection.updateMany({filter}, {$set: {field:value, field:value, ...}})
+
