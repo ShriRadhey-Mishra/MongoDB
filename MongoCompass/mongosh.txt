@@ -1,7 +1,9 @@
+## Check more of everthing on google. This is just that portion that you'll be using most of the time.
+
 • show dbs : shows all the collections in your database.
 • exit : to close the connection between MongoAtlas and CLI.
 
-## NOTE ##  : All these commands will be pasted directly on the cmd from the directory where the out/file file is to be located.
+## NOTE ##  : All these commands will be pasted directly on the MongoShell 
 // For any commands that are not listed in this list follow: https://docs.mongodb.com/database-tools/
 
 # mongoimport, mongoexport, mongodump and mongorestore
@@ -157,8 +159,16 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     • These queries instruct the MongoDB on how to update the document depend on the (update) parameter used.
     
     # Update Operators:
-        • $set: It replaces the existing field value with the one you specify. and you can update more than one field at a time.
+        • $set: It replaces the existing field value with the one you specify. and you can update more than one field at a time. If we use $set for a field that does not exists, then that field will be created.
             Syntax: db.collection.updateOne({filter}, {$set: {field:value, field:value, ...}})
                     db.collection.updateMany({filter}, {$set: {field:value, field:value, ...}})
-
-
+        • $unset: It removes the specified field or fiels that matches the criteria. 
+            Syntax: db.collection.updateMany({filters}, {$unset: {field: value, field: value,....}}, {options})
+        • $inc: This increments the value by a specified amount.
+            Syntax: db.collection.updateMany({filters}, {$inc: {field: value}}, {options})
+        • $rename: It renames the field.
+            Syntax: db.collecion.updatemany({filters}, {$rename: {field: value, field: value, ....}}, {options})
+        • $push: It pushes an element or a number of elements into an array.
+            Syntax: db.collection.updateMany({filters}, {$push: {field: value(s)}}, {options})
+        
+        
