@@ -6,10 +6,11 @@
 ## NOTE ##  : All these commands will be pasted directly on the MongoShell 
 // For any commands that are not listed in this list follow: https://docs.mongodb.com/database-tools/
 
-# mongoimport, mongoexport, mongodump and mongorestore
+## Command Line Interface Commands:
 
-mongoimport and mongoexport uses JSON format to import and export files.
-However, mongodump and mongorestore uses Binary JSON (BSON) format to import and export collections/databases to/from Mongo Atlas Cluster.
+# mongoimport, mongoexport, mongodump and mongorestore
+    mongoimport and mongoexport uses JSON format to import and export files.
+    However, mongodump and mongorestore uses Binary JSON (BSON) format to import and export collections/databases to/from Mongo Atlas Cluster.
 
 • mongoexport --uri="" collection= out=
 {
@@ -42,6 +43,9 @@ eg. mongodump --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke
 }
 
 eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" dump/import_export_db
+
+
+-----------------------------------------------------------------------------------------------------------------------------
 
 
 ## Mongo Query Language (MQL)
@@ -157,6 +161,7 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     • updateOne() update the first document that matches the specified filter, while updateMany() updates all the documents that matches the specified filter. 
     • If the filter parameter is left blank, then all the documents in the scope gets updated.
     • These queries instruct the MongoDB on how to update the document depend on the (update) parameter used.
+    • For the options parameter, we'll discuss one called upsert. It takes a boolean value which is by feault set to false. if set to true, and if therer are noo document that follows your filter criteria then that document will be inserted. 
     
     # Update Operators:
         • $set: It replaces the existing field value with the one you specify. and you can update more than one field at a time. If we use $set for a field that does not exists, then that field will be created.
@@ -170,5 +175,9 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
             Syntax: db.collecion.updatemany({filters}, {$rename: {field: value, field: value, ....}}, {options})
         • $push: It pushes an element or a number of elements into an array.
             Syntax: db.collection.updateMany({filters}, {$push: {field: value(s)}}, {options})
+
         
-        
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+## Aggregation Framework
