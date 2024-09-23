@@ -182,3 +182,23 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
 
 ## Aggregation Framework
 
+Aggregation framework allows for a more advanced operations, and its very powerful.
+Pipelines in Aggregation Framework: These pipelines are considered to be opereations or stages. Each stage performs a different operations. Essentially, It is a sequence of operations.  
+
+Syntax: db.collection.aggregate([{stage1}, {stage2}, {stage3}, ..., {stageN}], {options})
+
+All these methods that we see are the stages in the aggregation framework.
+    # $match: We can use $match at any stage of the pipeline stages, but it should usually come early in the pipeline. 
+        Syntax: $match: {query}
+            • In the query, you can laverage query operators that you have already covered in the MQL. 
+            • You can use $match more than once.
+            • It is basically the same as $find() in MQL, however it does not have a projection parameter. We have $project as a separate  operation in the aggregation framework. 
+
+    # $project: It is just like the project parameter in the $find() in the MQL. But it is capable of doing more than the project parameter in the find field. 
+        Syntax:  $project: {specification}
+        • It can occur multiple times in the pipeline. 
+        • Just like projection in find(), we can individually specify which field we want to show. 
+        • Unlike the projection in find(), it can also create a new variable which can show the value of another field. Ex. [{$project: {"new_num_of_employee":"$number_of_employee"}}]
+        • Similiarly we can also use it to re assign the values of already set fields to another fields. Ex. [{$project: {"name":1, "founded_year":"$name"}}]
+        • Don't worry as these just change the projection or view of the document and not actually change the underlying document. 
+
