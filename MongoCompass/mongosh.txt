@@ -105,6 +105,7 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     • skip(number): skips the first X number of documents. Syntax: db.collection.find({query}).skip(X)
     • size(): Size is like the count in that ir returns the count of the documents however it should be used when you've applied skip or limit to your records.
 
+
 # Query Embedded Document:
     We'll use dot operator to access the fields inside object field. You can chain up if needed. 
     ex: db.inspections.find({"address.zip": 11358})
@@ -202,3 +203,20 @@ All these methods that we see are the stages in the aggregation framework.
         • Similiarly we can also use it to re assign the values of already set fields to another fields. Ex. [{$project: {"name":1, "founded_year":"$name"}}]
         • Don't worry as these just change the projection or view of the document and not actually change the underlying document. 
 
+
+    # Arithmatic Expression Operator:
+        • $add:
+        • $subtract:
+        • $divide:
+        • $multiply:
+        • $round:
+        • $abs:
+        • $ceil:
+        • $exp:
+        • $floor:
+        • $ln:
+        • $log:
+        • $mod:
+        • $pow:
+        • $sqrt:
+        • $trunc:
