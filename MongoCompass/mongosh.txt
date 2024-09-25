@@ -220,3 +220,4 @@ All these methods that we see are the stages in the aggregation framework.
         • $pow:
         • $sqrt:
         • $trunc:
+        
