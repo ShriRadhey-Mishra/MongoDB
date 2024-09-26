@@ -205,19 +205,36 @@ All these methods that we see are the stages in the aggregation framework.
 
 
     # Arithmatic Expression Operator:
-        • $add:
-        • $subtract:
-        • $divide:
-        • $multiply:
-        • $round:
-        • $abs:
-        • $ceil:
-        • $exp:
-        • $floor:
-        • $ln:
-        • $log:
-        • $mod:
-        • $pow:
-        • $sqrt:
-        • $trunc:
+        • $add: This expression is used to add numbers. This can also be used to add dates.
+            Syntax: {$add: [expression1, expression2, ...., expressionN]}
+
+        • $subtract: This returns the value of (value2 - value1). This can also be used on dates. It only takes 2 expressions though unlike $add.
+            Syntax: {$subtract: [expression1, expression2]}
+
+        • $divide: Returns the result of the first number divided by the second number.
+            Syntax: {$divide: [expression1, expression2]}
+
+        • $multiply: Returns the result of multiplication of passed numnbers. Accepts any number of arguements.
+            Syntax: {$multiply: [expression1, expression2, ...., expressionN]}
+
+        • $round: This command rounds the number to a specific number of decimals.
+            Syntax: {$round: [expression, no_of_decimals]}
+
+        There are many more Arithmetic Operator expressions such as $abs, $ceil, $exp, $floor, $ln, $log, $mod, $pow, $sqrt and $trunc that you can see on google.
+        
+    # String Expression Operator:
+        • $concat: This results in a concatenated string of the passed strings. 
+            Syntax: {$concat: [expression1, expression2, ..., expressionN]}
+        
+        • $toUpper: This results in an Uppercased string.
+            Syntax: {$toUpper: expression}
+
+        • $toLower: This results in an Lowercased string.
+            Syntax: {$toLower: expression}
+       
+        • $regexMatch: Searches for a patterna and returns true if the pattern is found.
+            Syntax: {$regexMatch: {input:expression, regex:expression, options:expression}}
+
+        There are many more String Operator expressions such as $dateFromString, $dateToString, $indexOfByte, $indexOfCP, $ltrim, $substrBytes, $rtrim, $regexFind, $regexFindAll, $replaceOne, $replaceAll, $substrCP, $split, $strLenBytes, $strLenCP, $strcasecmp, $substr and $toString that you can see on google.
+
         
