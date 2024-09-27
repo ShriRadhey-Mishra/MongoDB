@@ -238,3 +238,4 @@ All these methods that we see are the stages in the aggregation framework.
         There are many more String Operator expressions such as $dateFromString, $dateToString, $indexOfByte, $indexOfCP, $ltrim, $substrBytes, $rtrim, $regexFind, $regexFindAll, $replaceOne, $replaceAll, $substrCP, $split, $strLenBytes, $strLenCP, $strcasecmp, $substr and $toString that you can see on google.
 
         
+        
