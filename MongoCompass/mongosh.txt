@@ -232,10 +232,23 @@ All these methods that we see are the stages in the aggregation framework.
         • $toLower: This results in an Lowercased string.
             Syntax: {$toLower: expression}
        
-        • $regexMatch: Searches for a patterna and returns true if the pattern is found.
+        • $regexMatch: Searches for a patterns and returns true if the pattern is found.
             Syntax: {$regexMatch: {input:expression, regex:expression, options:expression}}
 
-        There are many more String Operator expressions such as $dateFromString, $dateToString, $indexOfByte, $indexOfCP, $ltrim, $substrBytes, $rtrim, $regexFind, $regexFindAll, $replaceOne, $replaceAll, $substrCP, $split, $strLenBytes, $strLenCP, $strcasecmp, $substr and $toString that you can see on google.
+        There are many more String Operator expressions such as $dateFromString, $dateToString, $indexOfByte, $indexOfCP, $ltrim, $substrBytes, $rtrim, $regexFind, $regexFindAll, $replaceOne, $replaceAll, $substrCP, $split, $strLenBytes, $strLenCP, $strcasecmp, $substr and $toString, and it is highly recommended to check the documentation for this whenever needed.
 
-        
-        
+    # Date Expression Operator:
+        • $dateAdd: This add time unit to date object.
+            Syntax: {$dateAdd: {startDate:Expression, unit:Expression, amount:Expression, timezone:Expression}}
+        timezoneis optional, rest are requires.
+
+        • $dateDiff: This returns the difference between two dates.
+            Syntax: {$dateDiff: {startDate:Expression, endDate:Expression, unit:Expression, timezone:Expression, startOfWeek:string}}
+        timezone and startOfWeek are optional, rest are required.
+
+        • $month: This returns the month for a date.
+            {$month:Expression}
+
+        There are many more Date Expression Operators such as $dateFromParts, $dateFromString, $dateSubtract, $dateToParts, $dateToString, $dateTrunc, $dayOfMonth, $dayOfWeek, $dayOfYear, $hour, $isoDayOfWeek, $isoWeek, $isoWeekYear, $milisecond, $minute, $second, $todate, $week and $year, and you should see the documentation for these when needed.
+    
+    
