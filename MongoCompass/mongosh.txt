@@ -257,7 +257,8 @@ All these methods that we see are the stages in the aggregation framework.
         - To use these operators using the former syntax, under the $match stage, you need to use $expr.But you can use it normally in $project.
 
     # Array Expression Operators:
-        • $isArray:
+        • $isArray: Returns true if the expression is an array.
+            Syntax: 
         • $arrayElemAt:
         • $concatArrays:
         • $first: 
