@@ -258,12 +258,26 @@ All these methods that we see are the stages in the aggregation framework.
 
     # Array Expression Operators:
         • $isArray: Returns true if the expression is an array.
-            Syntax: 
-        • $arrayElemAt:
-        • $concatArrays:
-        • $first: 
-        • $last: 
-        • $size:
-        • $map:
+            Syntax: {$isArray: [expression]}
 
+        • $arrayElemAt: Returns the index of the element in array.
+            Syntax: {$arrayElemAt: [array, index]}
+
+        • $concatArrays: Concatenates the array together.
+            Syntax: {$concatArrays: [array1, array2, ..., arrayN]}
+
+        • $first: Returns the first element of the array.
+            Syntax: {$first: expression}
+
+        • $last: Returns the last element of the array.
+            Syntax: {$last: expression}
+
+        • $size: Returns the size of the array.
+            Syntax: {$size: array}
+
+        • $map: Applies an expression to each element of the array, and returns the array with applied results. 
+            Syntax: {$map:{input:expression, as:string, in:expression}}
+ 
         There are many more operators such as $arrayToObject, $filter, $in, $indexOfArray, $objectToArray, $reduce, $reverseArray, $slice, $zip and $range, about whom you can find more on the documentation.
+
+        
