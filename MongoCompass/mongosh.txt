@@ -204,7 +204,7 @@ All these methods that we see are the stages in the aggregation framework.
         • Don't worry as these just change the projection or view of the document and not actually change the underlying document. 
 
 
-    # Arithmatic Expression Operator:
+    # Arithmatic Expression Operators:
         • $add: This expression is used to add numbers. This can also be used to add dates.
             Syntax: {$add: [expression1, expression2, ...., expressionN]}
 
@@ -222,7 +222,7 @@ All these methods that we see are the stages in the aggregation framework.
 
         There are many more Arithmetic Operator expressions such as $abs, $ceil, $exp, $floor, $ln, $log, $mod, $pow, $sqrt and $trunc that you can see on google.
         
-    # String Expression Operator:
+    # String Expression Operators:
         • $concat: This results in a concatenated string of the passed strings. 
             Syntax: {$concat: [expression1, expression2, ..., expressionN]}
         
@@ -237,7 +237,7 @@ All these methods that we see are the stages in the aggregation framework.
 
         There are many more String Operator expressions such as $dateFromString, $dateToString, $indexOfByte, $indexOfCP, $ltrim, $substrBytes, $rtrim, $regexFind, $regexFindAll, $replaceOne, $replaceAll, $substrCP, $split, $strLenBytes, $strLenCP, $strcasecmp, $substr and $toString, and it is highly recommended to check the documentation for this whenever needed.
 
-    # Date Expression Operator:
+    # Date Expression Operators:
         • $dateAdd: This add time unit to date object.
             Syntax: {$dateAdd: {startDate:Expression, unit:Expression, amount:Expression, timezone:Expression}}
         timezoneis optional, rest are requires.
@@ -251,4 +251,18 @@ All these methods that we see are the stages in the aggregation framework.
 
         There are many more Date Expression Operators such as $dateFromParts, $dateFromString, $dateSubtract, $dateToParts, $dateToString, $dateTrunc, $dayOfMonth, $dayOfWeek, $dayOfYear, $hour, $isoDayOfWeek, $isoWeek, $isoWeekYear, $milisecond, $minute, $second, $todate, $week and $year, and you should see the documentation for these when needed.
     
-    
+    # Comparison Expression Operators:
+        - Same as all of those used in MQL.
+            Syntax: {operator: [expression1, expression2,...]}
+        - To use these operators using the former syntax, under the $match stage, you need to use $expr.But you can use it normally in $project.
+
+    # Array Expression Operators:
+        • $isArray:
+        • $arrayElemAt:
+        • $concatArrays:
+        • $first: 
+        • $last: 
+        • $size:
+        • $map:
+
+        There are many more operators such as $arrayToObject, $filter, $in, $indexOfArray, $objectToArray, $reduce, $reverseArray, $slice, $zip and $range, about whom you can find more on the documentation.
