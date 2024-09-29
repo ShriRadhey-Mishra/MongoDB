@@ -280,4 +280,20 @@ All these methods that we see are the stages in the aggregation framework.
  
         There are many more operators such as $arrayToObject, $filter, $in, $indexOfArray, $objectToArray, $reduce, $reverseArray, $slice, $zip and $range, about whom you can find more on the documentation.
 
-        
+    # Conditional Expression Operator:
+        • $cond: Evaluates a Boolean expression ro return one of the two specified expressions. 
+            Syntax: {$cond: {if: expression, then: true-case, else: false-case}}
+        • $ifNull: provides a replacement expression value in placce of nulls in your expression.
+            Syntax: {$ifNull: [expression1, expression2, expression3, ..., expressionN, replacement-expression-if-null]}
+        • $switch: evaluates a series of conditions and when the condition is true is executes a specific expression. 
+            Syntax: { $switch:
+                {
+                    branches: [
+                        {case:expression, then:expression}
+                        {case:expression, then:expression}
+                        {case:expression, then:expression}
+                        ...
+                    ],
+                    default: expression 
+                }
+            }
