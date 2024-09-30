@@ -281,7 +281,7 @@ All these methods that we see are the stages in the aggregation framework.
         There are many more operators such as $arrayToObject, $filter, $in, $indexOfArray, $objectToArray, $reduce, $reverseArray, $slice, $zip and $range, about whom you can find more on the documentation.
 
     # Conditional Expression Operator:
-        • $cond: Evaluates a Boolean expression ro return one of the two specified expressions. 
+        • $cond: Evaluates a Boolean expression to return one of the two specified expressions. 
             Syntax: {$cond: {if: expression, then: true-case, else: false-case}}
         • $ifNull: provides a replacement expression value in placce of nulls in your expression.
             Syntax: {$ifNull: [expression1, expression2, expression3, ..., expressionN, replacement-expression-if-null]}
@@ -289,11 +289,44 @@ All these methods that we see are the stages in the aggregation framework.
             Syntax: { $switch:
                 {
                     branches: [
-                        {case:expression, then:expression}
-                        {case:expression, then:expression}
-                        {case:expression, then:expression}
+                        {case:expression, then:expression},
+                        {case:expression, then:expression},
+                        {case:expression, then:expression},
                         ...
                     ],
                     default: expression 
                 }
             }
+
+    # $addFields: Just like $project, it can add fields in the document and give value of one field to another field.
+    With $addFields we can only add field to the pipeline, unlike the $project field, where it tells which fields to take on to the next stage,and which ones to remove. 
+        Syntax: $addFields: {newField: expression,....}
+    This field can appear multiple times in the pipeline.
+    Similar to $project stage, $adddFields can take Expression Operators without the use of $expr.
+
+    # $sort: It takes in a document of fields and each field has a value of 1(ascending) or -1(descending). 
+        Syntax: $sort: {field1:sort_order, field2:sort_order,...,fieldN:sort_order}
+
+    # $count: Counts all the documents that passed through the stage. It returns a afield that you've named in the $count stage and returns the number of document.
+        Syntax: $count: string
+    
+    # $limit: It returns only the first N documents that pass through this stage. You specifiy the number ofg doucments that you like.
+        Syntax: $limit: number
+    
+    # $skip: This stage skips the first N documents that you pass through this stage. You specify the number of documents that you want to skip.  
+        Syntax: $skip:  number
+
+    # $group: This stage groups documents by a specified _id expression and outpts a document for each distinct grouping of that expression.
+    These outputted fields can hold calculated fields based on an accumulator expression ($avg, $sum, etc.).
+        Syntax: $group: {
+            "_id": expression,
+            "field1": {accumulator1:expression1},
+            "field2": {accumulator2:expression2},
+            "field3": {accumulator3:expression3},
+            ....
+            "fieldN": {accumulatorN:expressionN},
+        }
+    This _id is not the unique identifier for the objects. This contains the expression that groups the documents. If the _id field is null, then it calculates the accumulated values for all the documents in the collection.
+    You then have a number of fields which are computed based on an accumulator. This can be one or more fields.
+
+
