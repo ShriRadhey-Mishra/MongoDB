@@ -12,7 +12,7 @@
     mongoimport and mongoexport uses JSON format to import and export files.
     However, mongodump and mongorestore uses Binary JSON (BSON) format to import and export collections/databases to/from Mongo Atlas Cluster.
 
-• mongoexport --uri="" collection= out=
+• mongoexport --uri="" --collection= --out=
 {
     uri stands for Uniform Resource Identifier. Its syntax is --uri="mongodb+srv://user:password@<cluster>.mongodb.net/database"
     collection specifies the collection in database that we want to export from.
@@ -21,7 +21,7 @@
 
 eg.: mongoexport --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5lxke.mongodb.net/import_export_db" --collection=import_export_coll1 --out=import_export_coll1.json
 
-• mongoimport --uri="" collection= file=
+• mongoimport --uri="" --collection= --file=
 {
     uri stands for Uniform Resource Identifier. Its syntax is --uri="mongodb+srv://user:password@<cluster>.mongodb.net/database"
     collection specifies the collection in database that we want to import our file. If the specified collection doesn't exists, then a new collection will be created.
@@ -95,7 +95,7 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
  
  - Element Operators:
     • $exists: Returns documents that contains a specified field. Syntax: {field: {$exists: <boolean>}}
-               I you pass <boolean> === true, and if that field exists then that document will be returned. If you pass <boolean> === false, and if that field does not exist then that document will be returned.
+               If you pass <boolean> === true, and if that field exists then that document will be returned. If you pass <boolean> === false, and if that field does not exist then that document will be returned.
     • $type: Returns the fields that contains the values of a specific data type. Syntax: {field: {$type: [<BSON type1>, <BSON type2>,...]}} 
  
  - Cursor Methods:
@@ -103,7 +103,7 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     • sort({parameters}): Orders the documents based on the specific field. Syntax: db.collection.find({query}).sort({"station_name": -1})  (Here, 1 means ascendind order and -1 means descending order.)
     • limit(number): Limits the number of documents that are returned. Syntax: db.collection.find({query}).limit(number)
     • skip(number): skips the first X number of documents. Syntax: db.collection.find({query}).skip(X)
-    • size(): Size is like the count in that ir returns the count of the documents however it should be used when you've applied skip or limit to your records.
+    • size(): Size is like the count in that it returns the count of the documents however it should be used when you've applied skip or limit to your records.
 
 
 # Query Embedded Document:
