@@ -110,7 +110,7 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
     We'll use dot operator to access the fields inside object field. You can chain up if needed. 
     ex: db.inspections.find({"address.zip": 11358})
 
-# Quering Arrays:
+# Querying Arrays:
     • If you want to display all the documents which contains a particular element in the array, use this example syntax: db.posts.find({"tags":"roof"},{"tags":1})
     • If you want to find a specific array you must specify all the elements that are present in that array. If the order is not maintained, then the desired output will not come. ex.  syntax: db.posts.find({"tags":["current", "quartz", "textbook", "bus", "roof", "lentil", "flute", "mile", "spain", "sagittarius"]},{"tags":1})
     • $all: returns all the documents where the value of a field is an array that contains all the specified elements and ordering doesn't matter. Syntax: db.collection.find({field: {$all: [value1, value2,...]}})
