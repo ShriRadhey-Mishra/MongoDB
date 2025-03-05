@@ -1,4 +1,4 @@
-## Check more of everthing on google. This is just that portion that you'll be using most of the time.
+## Check more of everything on google. This is just that portion that you'll be using most of the time.
 
 • show dbs : shows all the collections in your database.
 • exit : to close the connection between MongoAtlas and CLI.
