@@ -156,8 +156,8 @@ eg. mongorestore --uri="mongodb+srv://radheymishra13:psnwFyrF5ZZSpFum@sandbox.5l
 
 # Updating documents in a Collection:
     • updateOne and updateMany():  They both follow the same syntax:
-        db.collection.updateOne({filter}, (update), {options})
-        db.collection.updateMany({filter}, (update), {options})
+        db.collection.updateOne({filter}, {update}, {options})
+        db.collection.updateMany({filter}, {update}, {options})
     
     • updateOne() update the first document that matches the specified filter, while updateMany() updates all the documents that matches the specified filter. 
     • If the filter parameter is left blank, then all the documents in the scope gets updated.
